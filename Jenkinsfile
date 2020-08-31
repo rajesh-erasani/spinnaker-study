@@ -24,7 +24,7 @@ node {
 	    archiveArtifacts artifacts: 'spinnaker.properties', fingerprint: true
 	}
 	stage('Push to ECR') {
-		docker.withRegistry('219099013464.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-east-2:mike-aws') {
+		docker.withRegistry('219099013464.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:spinnaker-admin-aws') {
 			docker.image('${JOB_NAME}').push('${BUILD_ID}')
 	   }
 	}
